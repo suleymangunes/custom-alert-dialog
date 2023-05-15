@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:custom_dialog/view/alert/stack_dialog.dart';
+import 'package:custom_dialog/view/alert/design/stack_dialog.dart';
 import 'package:custom_dialog/product/enum/dialog_type.dart';
 
-class MakingDialog extends StatelessWidget {
-  const MakingDialog({
+class CreateDialog extends StatelessWidget {
+  const CreateDialog({
     Key? key,
     required this.title,
     required this.description,

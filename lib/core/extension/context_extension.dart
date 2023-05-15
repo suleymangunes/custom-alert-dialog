@@ -18,5 +18,10 @@ extension AlertSizes on BuildContext {
 
 extension FloatSpacers on BuildContext {
   SizedBox get floatWidthSpace => SizedBox(width: width * 0.1);
-  SizedBox get titlePadSpace => SizedBox(height: width * 0.1);
+  SizedBox get titlePadSpace => SizedBox(height: width * 0.015);
+  SizedBox get circleAvatarSpace => SizedBox(width: alertAvatarSpace);
+}
+
+extension PaddingsAlertDialog on BuildContext {
+  EdgeInsets get imagePading => EdgeInsets.all(width * 0.03);
 }

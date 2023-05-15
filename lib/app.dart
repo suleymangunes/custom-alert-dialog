@@ -1,6 +1,6 @@
-import 'package:custom_dialog/alert/show_custom_dialog.dart';
-import 'package:custom_dialog/enum/dialog_type.dart';
-import 'package:custom_dialog/extension/context_extension.dart';
+import 'package:custom_dialog/view/alert/show/show_custom_dialog.dart';
+import 'package:custom_dialog/product/enum/dialog_type.dart';
+import 'package:custom_dialog/core/extension/context_extension.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {

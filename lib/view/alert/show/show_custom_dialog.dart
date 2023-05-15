@@ -1,5 +1,5 @@
-import 'package:custom_dialog/alert/making_dialog.dart';
-import 'package:custom_dialog/enum/dialog_type.dart';
+import 'package:custom_dialog/view/alert/create/create_dialog.dart';
+import 'package:custom_dialog/product/enum/dialog_type.dart';
 import 'package:flutter/material.dart';
 
 class ShowCustomDialog {
@@ -24,7 +24,7 @@ class ShowCustomDialog {
     showDialog(
       context: context,
       builder: (context) {
-        return MakingDialog(
+        return CreateDialog(
           description: description,
           dialogType: dialogType,
           title: title,
