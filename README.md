@@ -1,16 +1,38 @@
-# custom_dialog
+# Custom Dialog
 
-A new Flutter project.
+In this project, a custom dialog widget was designed.
 
-## Getting Started
+## Usage
 
-This project is a starting point for a Flutter application.
+```
+ShowCustomDialog(
+                context: context,
+                title: "Warning!",
+                description: "This is description for alert.This is description for alert.",
+                dialogType: DialogType.warning,
+                okFunction: () {},
+                cancelFunction: () {},
+              );
+```
 
-A few resources to get you started if this is your first Flutter project:
+You can choose 3 types of dialogue types. These: Danger, Warning And Done.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Light Theme
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<br>
+<p float="left">
+  <img hspace="20"  src="assets/readme-files/danger.png" width="200" />
+  <img hspace="20" src="assets/readme-files/done.png" width="200" />
+  <img hspace="20"  src="assets/readme-files/warning.png" width="200" />
+</p>
+<br>
+
+## Dark Theme
+
+<br>
+<p float="left">
+  <img hspace="20"  src="assets/readme-files/danger_dark.png" width="200" />
+  <img hspace="20" src="assets/readme-files/done_dark.png" width="200" />
+  <img hspace="20"  src="assets/readme-files/warning_dark.png" width="200" />
+</p>
+<br>
