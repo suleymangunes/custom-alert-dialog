@@ -35,6 +35,8 @@ class HomeView extends StatelessWidget {
                 title: "Danger.",
                 description: "This is description for alert.This is description for alert.",
                 dialogType: DialogType.danger,
+                okFunction: () {},
+                cancelFunction: () {},
               );
             },
           ),
@@ -47,6 +49,8 @@ class HomeView extends StatelessWidget {
                 title: "Warning!",
                 description: "This is description for alert.This is description for alert.",
                 dialogType: DialogType.warning,
+                okFunction: () {},
+                cancelFunction: () {},
               );
             },
           ),
@@ -59,6 +63,8 @@ class HomeView extends StatelessWidget {
                 title: "Done!",
                 description: "This is description for alert.This is description for alert.",
                 dialogType: DialogType.done,
+                okFunction: () {},
+                cancelFunction: () {},
               );
             },
           ),

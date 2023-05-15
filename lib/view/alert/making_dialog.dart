@@ -1,8 +1,6 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-
-import 'package:custom_dialog/alert/stack_dialog.dart';
-import 'package:custom_dialog/enum/dialog_type.dart';
+import 'package:custom_dialog/view/alert/stack_dialog.dart';
+import 'package:custom_dialog/product/enum/dialog_type.dart';
 
 class MakingDialog extends StatelessWidget {
   const MakingDialog({
@@ -10,10 +8,14 @@ class MakingDialog extends StatelessWidget {
     required this.title,
     required this.description,
     required this.dialogType,
+    required this.okFunction,
+    required this.cancelFunction,
   }) : super(key: key);
   final String title;
   final String description;
   final DialogType dialogType;
+  final void Function() okFunction;
+  final void Function() cancelFunction;
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +31,8 @@ class MakingDialog extends StatelessWidget {
           description: description,
           dialogType: dialogType,
           title: title,
+          okFunction: okFunction,
+          cancelFunction: cancelFunction,
         ),
       ),
     );

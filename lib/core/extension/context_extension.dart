@@ -18,4 +18,5 @@ extension AlertSizes on BuildContext {
 
 extension FloatSpacers on BuildContext {
   SizedBox get floatWidthSpace => SizedBox(width: width * 0.1);
+  SizedBox get titlePadSpace => SizedBox(height: width * 0.1);
 }

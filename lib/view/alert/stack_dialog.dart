@@ -1,8 +1,13 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:custom_dialog/core/components/circle/circle_behind_to_dialog.dart';
+import 'package:custom_dialog/core/extension/content_extension.dart';
+import 'package:custom_dialog/product/widget/text/description_text_alert.dart';
+import 'package:custom_dialog/product/widget/text/title_text_alert.dart';
+import 'package:custom_dialog/view/_product/_widget/_text/cancel_text_button.dart';
+import 'package:custom_dialog/view/_product/_widget/_text/confirm_text_button.dart';
 import 'package:flutter/material.dart';
 
-import 'package:custom_dialog/enum/dialog_type.dart';
-import 'package:custom_dialog/extension/context_extension.dart';
+import 'package:custom_dialog/product/enum/dialog_type.dart';
+import 'package:custom_dialog/core/extension/context_extension.dart';
 
 class StackDialog extends StatelessWidget {
   const StackDialog({
@@ -10,10 +15,14 @@ class StackDialog extends StatelessWidget {
     required this.title,
     required this.description,
     required this.dialogType,
+    required this.okFunction,
+    required this.cancelFunction,
   });
   final String title;
   final String description;
   final DialogType dialogType;
+  final void Function() okFunction;
+  final void Function() cancelFunction;
 
   @override
   Widget build(BuildContext context) {
@@ -23,12 +32,7 @@ class StackDialog extends StatelessWidget {
         width: context.alertWidht,
         child: Stack(
           children: [
-            Positioned(
-              child: CircleAvatar(
-                backgroundColor: dialogType.getColor,
-                radius: context.circleAvatarRadius,
-              ),
-            ),
+            CircleBehindToAlert(dialogType: dialogType),
             Positioned(
               left: context.alertAvatarSpace,
               top: context.alertAvatarSpace,
@@ -66,57 +70,23 @@ class StackDialog extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          const SizedBox(
-                            height: 10,
-                          ),
+                          context.titlePadSpace,
                           SizedBox(
-                            height: Theme.of(context).textTheme.titleLarge?.fontSize,
+                            height: context.titleHeight,
                             width: context.textWidth,
-                            child: Text(
-                              title,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
+                            child: TitleTextAlert(title: title),
                           ),
                           SizedBox(
-                            height: Theme.of(context).textTheme.bodySmall!.fontSize! * 3,
+                            height: context.descriptionHeight,
                             width: context.textWidth,
-                            child: SingleChildScrollView(
-                              physics: const BouncingScrollPhysics(),
-                              child: Text(
-                                description,
-                                style: Theme.of(context).textTheme.bodyMedium,
-                              ),
-                            ),
+                            child: DescriptionTextAlert(description: description),
                           ),
                           SizedBox(
-                            height: Theme.of(context).textTheme.bodySmall!.fontSize! * 3,
+                            height: context.actionButtonsHeight,
                             child: Row(
                               children: [
-                                TextButton(
-                                  style: ButtonStyle(
-                                    overlayColor: MaterialStateProperty.all(dialogType.getShadeColor),
-                                    padding: MaterialStateProperty.all(EdgeInsets.zero),
-                                  ),
-                                  onPressed: () {},
-                                  child: Text(
-                                    "Cancel",
-                                    style: Theme.of(context).textTheme.bodyMedium,
-                                  ),
-                                ),
-                                TextButton(
-                                  onPressed: () {},
-                                  style: ButtonStyle(
-                                    overlayColor: MaterialStateProperty.all(dialogType.getShadeColor),
-                                  ),
-                                  child: Text(
-                                    "Ok",
-                                    style: Theme.of(context).textTheme.bodyMedium,
-                                  ),
-                                ),
+                                CancelTextButton(cancelFunction: cancelFunction, dialogType: dialogType),
+                                ConfirmTextButton(okFunction: okFunction, dialogType: dialogType),
                               ],
                             ),
                           )
